@@ -1,9 +1,10 @@
 # ⚡ dCore
 > **El Framework Definitivo para Servidores Minecraft.** > Potente, asíncrono y diseñado para un rendimiento crítico con personalización absoluta.
 
-[![Java](https://img.shields.io/badge/Java-17%2B-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
+[![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
 [![Minecraft](https://img.shields.io/badge/Minecraft-1.18.2%20--%201.20.x-green?style=for-the-badge&logo=minecraft)](https://papermc.io/)
-[![JitPack](https://img.shields.io/badge/JitPack-v1.0.0-blue?style=for-the-badge)](https://jitpack.io/)
+[![OS](https://img.shields.io/badge/OS-Linux%20%2F%20Unix-red?style=for-the-badge&logo=linux)](https://www.linux.org/)
+[![JitPack](https://img.shields.io/badge/JitPack-v0.1.7-blue?style=for-the-badge)](https://jitpack.io/#me.danshi/dCore)
 
 ---
 ## Información más detallada del plugin:
@@ -20,6 +21,13 @@
 * **💀 HeadDatabase (HDB):** Integración nativa. Usa `hdb-<id>` y el plugin se encarga del resto con un sistema de fallback seguro.
 
 ---
+## 🌟 Información importante
+**⚠️ Requisitos del Sistema**
+**Sistema Operativo: Únicamente sistemas Linux o Unix-based.**
+
+**Java: Versión 21 (requerido para el soporte de Virtual Threads).**
+
+**Plataforma: Paper / Purpur 1.18.2 o superior.**
 
 ## 🚀 Instalación
 
