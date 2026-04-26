@@ -6,7 +6,9 @@
 [![JitPack](https://img.shields.io/badge/JitPack-v1.0.0-blue?style=for-the-badge)](https://jitpack.io/)
 
 ---
-
+## Información más detallada del plugin:
+* **🗄️ dCore es mucho más que un plugin; es un framework de alto rendimiento diseñado para centralizar y simplificar la lógica de tu servidor. A nivel de plugin, integra un motor infinito de economías custom con balances iniciales, sistemas de baltop configurables (en chat o GUI interactiva) y un poderoso constructor de menús dinámicos 100% editables desde YAML, capaz de registrar sus propios comandos de apertura, cobrar accesos con monedas internas, soportar cabezas de HeadDatabase y ejecutar cadenas lógicas de acciones (como dar/quitar dinero, ejecutar comandos de consola/jugador, reproducir sonidos y enviar mensajes enriquecidos con MiniMessage). A nivel de API, expone una arquitectura reactiva basada en CompletableFuture y el patrón Repository, permitiendo a desarrolladores externos interactuar de forma 100% asíncrona y segura con múltiples motores de persistencia (MySQL, MongoDB, H2) sin arriesgar el hilo principal (Tick Thread), además de proveer métodos nativos para manipular balances, formatear monedas al instante y sincronizarse fluidamente con PlaceholderAPI para expandir las posibilidades de cualquier otro complemento.
+* 
 ## 🌟 Características Principales
 
 * **🗄️ Persistencia Multi-DB:** Soporte nativo y 100% asíncrono para **H2, MySQL y MongoDB**. Cero bloqueos en el hilo principal (*Main Thread*).
