@@ -18,12 +18,16 @@ public sealed interface Action permits Action.Cmd, Action.Msg, Action.Snd, Actio
 
     record Msg(String text) implements Action {
         @Override
-        public void execute(Player p) { p.sendMessage(DCore.get().miniMessage().deserialize(text)); }
+        public void execute(Player p) {
+            p.sendMessage(DCore.get().miniMessage().deserialize(text));
+        }
     }
 
     record Snd(String sound, float vol, float pitch) implements Action {
         @Override
-        public void execute(Player p) { XSound.of(sound).ifPresent(x -> x.play(p, vol, pitch)); }
+        public void execute(Player p) {
+            XSound.matchXSound(sound).ifPresent(s -> s.play(p, vol, pitch));
+        }
     }
 
     record Close() implements Action {
@@ -33,12 +37,28 @@ public sealed interface Action permits Action.Cmd, Action.Msg, Action.Snd, Actio
 
     record EcoGive(String currency, double amount) implements Action {
         @Override
-        public void execute(Player p) { DCore.get().getDbManager().modifyBalance(p.getUniqueId().toString(), currency, amount); }
+        public void execute(Player p) {
+            var db = DCore.get().getDbManager();
+            String uuid = p.getUniqueId().toString();
+
+            // Manejo asíncrono: cuando llegue el resultado, sumamos y guardamos
+            db.getBalance(uuid, currency).thenAccept(current -> {
+                db.setBalance(uuid, currency, current + amount);
+            });
+        }
     }
 
     record EcoTake(String currency, double amount) implements Action {
         @Override
-        public void execute(Player p) { DCore.get().getDbManager().modifyBalance(p.getUniqueId().toString(), currency, -amount); }
+        public void execute(Player p) {
+            var db = DCore.get().getDbManager();
+            String uuid = p.getUniqueId().toString();
+
+            // Manejo asíncrono: cuando llegue el resultado, restamos y guardamos
+            db.getBalance(uuid, currency).thenAccept(current -> {
+                db.setBalance(uuid, currency, current - amount);
+            });
+        }
     }
 
     record NextPage() implements Action {
