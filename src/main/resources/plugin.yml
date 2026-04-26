@@ -1,0 +1,30 @@
+name: dCore
+version: '${version}'
+
+main: me.danshi.dCore.DCore
+api-version: '1.18'
+load: POSTWORLD
+
+softdepend: [ HeadDatabase, Vault, PlaceholderAPI ]
+commands:
+  dcore:
+    description: Admin main command
+    permission: dcore.admin
+  balance:
+    description: Check balance
+    permission: dcore.balance
+  baltop:
+    description: Balance top
+    permission: dcore.baltop
+  economy:
+    description: Manage economies
+    permission: dcore.admin.economy
+permissions:
+  dcore.admin:
+    default: op
+  dcore.admin.economy:
+    default: op
+  dcore.balance:
+    default: true
+  dcore.baltop:
+    default: true

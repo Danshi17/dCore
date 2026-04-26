@@ -1,0 +1,54 @@
+main_shop:
+  title: "<dark_gray>Server Shop</dark_gray>"
+  size: 54
+  register_menu_command: true
+  command_open:
+    - shop
+    - tienda
+  open_permission: "dcore.shop.open"
+  open_cost:
+    currency: coins
+    amount: 10.0
+  items:
+    decoration_1:
+      material: GRAY_STAINED_GLASS_PANE
+      name: " "
+      slots:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+    coins_item:
+      material: GOLD_NUGGET
+      name: "<gold>Buy Coins</gold>"
+      lore:
+        - "<gray>Click to buy 100 coins"
+        - "<red>Cost: 10 Gems"
+      slots:
+        - 22
+      actions:
+        - "[take_economy] gems 10"
+        - "[give_economy] coins 100"
+        - "[message] <green>You bought 100 coins!"
+        - "[sound] ENTITY_EXPERIENCE_ORB_PICKUP 1.0 1.0"
+        - "[close]"
+      click_permission: "dcore.shop.buycoins"
+    next_page:
+      material: hdb-7129
+      name: "<aqua>Next Page</aqua>"
+      slots:
+        - 53
+      actions:
+        - "[next_page]"
+    close_button:
+      material: BARRIER
+      name: "<red>Close</red>"
+      slots:
+        - 49
+      actions:
+        - "[close]"

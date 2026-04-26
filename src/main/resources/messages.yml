@@ -1,0 +1,21 @@
+prefix: "<gradient:blue:aqua>[dCore]</gradient> "
+no_permission: "<red>You lack permission: %permission%</red>"
+economy:
+  balance: "<green>Your balance for %currency% is: %amount%</green>"
+  unknown_currency: "<red>Unknown currency: %currency%</red>"
+  unknown_player: "<red>Player not found: %player%</red>"
+  insufficient: "<red>You need %amount% %currency% but only have %balance%</red>"
+  set:
+    - "<yellow>%currency% balance set to %amount% for %player%</yellow>"
+  give:
+    - "<yellow>Gave %amount% %currency% to %player%.</yellow>"
+    - "<green>You received %amount% %currency%!</green>"
+    - "<gray>New balance: %new_balance%</gray>"
+  take:
+    - "<yellow>Took %amount% %currency% from %player%.</yellow>"
+    - "<red>%amount% %currency% was taken from you!</red>"
+    - "<gray>New balance: %new_balance%</gray>"
+baltop:
+  header: "<gradient:gold:yellow>Top %currency% Balances</gradient>"
+  format: "<dark_gray>%position%. <white>%player%<dark_gray>: <green>%amount%"
+  no_data: "<gray>No data found for %currency%</gray>"
