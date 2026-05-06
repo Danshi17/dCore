@@ -12,7 +12,7 @@ import me.danshi.dCore.menu.MenuListener;
 import me.danshi.dCore.menu.MenuRegistry;
 import me.danshi.dCore.util.ItemBuilder;
 import net.byteflux.libby.BukkitLibraryManager;
-import net.byteflux.libby.Library; // Importante añadir esto
+import net.byteflux.libby.Library; 
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
@@ -38,24 +38,31 @@ public final class DCore extends JavaPlugin implements Listener {
         initLibby();
 
         dbManager = new DatabaseManager(this);
-        dbManager.init(); // Corregido: Removido el .thenRun() ya que es un método void
+        
+        dbManager.init(); 
 
         economyManager = new EconomyManager(this);
+        
         economyManager.cacheTop();
 
         menuRegistry = new MenuRegistry(this);
+        
         menuRegistry.load();
 
         getServer().getPluginManager().registerEvents(new MenuListener(this), this);
         getServer().getPluginManager().registerEvents(this, this);
 
         getCommand("dcore").setExecutor(new EcoAdminCmd(this));
+        
         getCommand("economy").setExecutor(new EcoAdminCmd(this));
+        
         getCommand("balance").setExecutor(new BalanceCmd(this));
+        
         getCommand("baltop").setExecutor(new BaltopCmd(this));
+        
 
         if (getServer().getPluginManager().getPlugin("PlaceholderAPI") != null) {
-            new PAPIHook(this).register(); // Recuerda hacer que PAPIHook extienda PlaceholderExpansion
+            new PAPIHook(this).register(); 
         }
     }
 
@@ -75,11 +82,14 @@ public final class DCore extends JavaPlugin implements Listener {
         var libby = new BukkitLibraryManager(this);
         libby.addMavenCentral();
 
-        // Corregido: Uso correcto del Library Builder de Libby
         libby.loadLibrary(Library.builder().groupId("com.zaxxer").artifactId("HikariCP").version("5.1.0").build());
+        
         libby.loadLibrary(Library.builder().groupId("com.mysql").artifactId("mysql-connector-j").version("8.3.0").build());
+        
         libby.loadLibrary(Library.builder().groupId("com.h2database").artifactId("h2").version("2.2.224").build());
+        
         libby.loadLibrary(Library.builder().groupId("org.mongodb").artifactId("mongodb-driver-sync").version("4.11.1").build());
+        
     }
 
     @EventHandler
@@ -93,10 +103,17 @@ public final class DCore extends JavaPlugin implements Listener {
     }
 
     public static DCore get() { return instance; }
+    
     public DatabaseManager getDbManager() { return dbManager; }
+    
     public EconomyManager getEconomyManager() { return economyManager; }
+    
     public MenuRegistry getMenuRegistry() { return menuRegistry; }
+    
     public MiniMessage miniMessage() { return mm; }
+    
     public FileConfiguration getMessagesCfg() { return messagesCfg; }
+    
     public FileConfiguration getMenusCfg() { return menusCfg; }
+    
 }
